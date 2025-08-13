@@ -25,3 +25,5 @@
 2. The sound system is not fully optimized.
 3. UI interaction prompts are not clear enough.
 
+## Demo video
+You can find a demonstration video here: https://drive.google.com/file/d/1Rap8kAODNsDtKnRc43wuyIQIJF41wBWR/view?usp=sharing
