@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 04edab22e7357994c9c527c1acf1019c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - treePrefab: {fileID: 100002, guid: 03e6093920d64bb419204a7cba8b857d, type: 3}
+  - cityPrefab: {fileID: 1536897726572502, guid: 13f9d44ccafc2424295533f2d2f4db93,
+      type: 3}
+  - residentPrefab: {fileID: 1913004789782250, guid: 8d0703b2c0bc30d44b3553a37c906203,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
