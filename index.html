@@ -1,14 +1,102 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>EcoCycle DemoVideo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoCycle Project Demo</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: #f0f2f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        header p {
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .video-container {
+            max-width: 800px;
+            width: 100%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        video {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .description {
+            margin-top: 20px;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            header p {
+                font-size: 1em;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Survival-strategy-game-EcoCycle</h1>
-    <p>Here is a video demonstration of my project：</p>
-    <iframe src="https://drive.google.com/file/d/1Rap8kAODNsDtKnRc43wuyIQIJF41wBWR/view?usp=sharing" width="640" height="480" allow="autoplay"></iframe>
+
+<header>
+    <h1>Survival Strategy Game: EcoCycle</h1>
+    <p>Project Demo Video</p>
+</header>
+
+<main>
+    <div class="video-container">
+        <video controls>
+            <source src="DemoVideo.MP4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="description">
+            <p>This is the demo video of our EcoCycle project, showcasing gameplay and strategy.</p>
+        </div>
+    </div>
+</main>
+
+<footer>
+    &copy; 2025 Yicheng Dong. GitHub Pages Project Demo
+</footer>
+
 </body>
 </html>
-
-
