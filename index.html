@@ -1,81 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoCycle Demo Video</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f4f8;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        header {
-            padding: 30px;
-            background-color: #2d6a4f;
-            color: white;
-        }
-        h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        p {
-            font-size: 1.2em;
-            margin: 10px 0 30px;
-        }
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            max-width: 100%;
-            background: #000;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            margin: 0 auto;
-            width: 90%;
-            max-width: 900px;
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-        footer {
-            padding: 15px;
-            background-color: #2d6a4f;
-            color: white;
-            margin-top: 30px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forest Chronicle - Demo</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    /* 全局样式 */
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #9EF29B, #71D9B3, #038C7F, #98DCFE, #22A2F2, #227FDE);
+        color: #222;
+        line-height: 1.6;
+    }
+
+    /* 页头 */
+    header {
+        text-align: center;
+        padding: 60px 20px;
+        background: rgba(255, 255, 255, 0.1);
+        border-bottom: 2px solid #038C7F;
+    }
+    header h1 {
+        font-size: 3em;
+        margin: 0;
+        color: #038C7F;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+    header p {
+        font-size: 1.2em;
+        margin-top: 10px;
+        color: #22A2F2;
+    }
+
+    /* 内容区域 */
+    section {
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 30px 25px;
+        background: rgba(255, 255, 255, 0.85);
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+    h2 {
+        color: #038C7F;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #22A2F2;
+        padding-bottom: 5px;
+    }
+    h3 {
+        color: #227FDE;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    /* 列表样式 */
+    ul, ol {
+        margin-left: 20px;
+    }
+
+    code {
+        display: block;
+        background: #98DCFE;
+        padding: 10px;
+        border-radius: 8px;
+        margin: 10px 0;
+        overflow-x: auto;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    table, th, td {
+        border: 1px solid #038C7F;
+    }
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+    th {
+        background-color: #71D9B3;
+    }
+
+    /* 视频容器 */
+    .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        margin: 20px 0;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    /* 链接 */
+    a {
+        color: #038C7F;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        background: rgba(0,0,0,0.1);
+        margin-top: 40px;
+        font-size: 0.9em;
+    }
+</style>
 </head>
 <body>
 
-    <header>
-        <h1>EcoCycle</h1>
-        <p>Survival Strategy Game - Demo Video</p>
-    </header>
+<header>
+    <h1>Forest Chronicle</h1>
+    <p>Ecological Simulation Game Demo</p>
+</header>
 
-    <main>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/ucV9xFBUZbI" 
-                    title="EcoCycle Demo Video" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-            </iframe>
-        </div>
-    </main>
+<section>
+    <h2>🌳 Game Overview</h2>
+    <p><strong>Forest Chronicle</strong> is an ecological simulation game where players act as ecosystem managers balancing human development with environmental preservation. Through real-time resource management across three eras, the game demonstrates the butterfly effect of human activities on nature.</p>
+</section>
 
-    <footer>
-        <p>© 2025 EcoCycle Project. All rights reserved.</p>
-    </footer>
+<section>
+    <h2>✨ Core Features</h2>
+    <h3>🎮 Gameplay Mechanics</h3>
+    <ul>
+        <li><strong>Dual Management System</strong>: Human settlements (build houses/farms – Press 2) & Ecosystem protection (plant forests/clean water)</li>
+        <li><strong>Three Challenge Stages</strong>:
+            <ol>
+                <li>Basic Survival (Peaceful development)</li>
+                <li>Ecological Crisis (Orc invasion management)</li>
+                <li>Ultimate Disaster (Volcano/flood survival)</li>
+            </ol>
+        </li>
+        <li><strong>Dynamic Feedback System</strong>:
+            <ul>
+                <li>Soil quality degradation from deforestation</li>
+                <li>Water pollution impact on fish populations</li>
+                <li>Air quality affecting crop yields</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>🛠️ Technical Implementation</h3>
+    <table>
+        <tr>
+            <th>Component</th>
+            <th>Details</th>
+        </tr>
+        <tr>
+            <td>Engine</td>
+            <td>Unity 2021.3 with URP</td>
+        </tr>
+        <tr>
+            <td>Language</td>
+            <td>C# 9.0 (Async/Await for AI behavior)</td>
+        </tr>
+        <tr>
+            <td>Terrain System</td>
+            <td>Custom heightmap generator + Biome blend shader</td>
+        </tr>
+        <tr>
+            <td>Ecosystem Logic</td>
+            <td>Entity Component System (ECS) for 10k+ unit simulations</td>
+        </tr>
+    </table>
+</section>
+
+<section>
+    <h2>🚀 Getting Started</h2>
+    <h3>📥 Installation</h3>
+    <code>
+        # Download latest build<br>
+        git clone https://github.com/forest-chronicle/game.git<br>
+        cd ForestChronicle<br><br>
+        # Windows/macOS<br>
+        ./setup.sh
+    </code>
+</section>
+
+<section>
+    <h2>🎬 Demo Video</h2>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>
+    </div>
+</section>
+
+<footer>
+    &copy; 2025 Forest Chronicle. All rights reserved.
+</footer>
 
 </body>
 </html>
