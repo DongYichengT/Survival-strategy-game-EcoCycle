@@ -1,6 +1,7 @@
 # Survival-strategy-game-EcoCycle
-· Design and development of integrated resource management;  
-· Use Unity for independent completion system design, landscape construction, UI interface, three-level resource management system, production, health, and development system implementation.
+## 🌳 Game Overview
+**Forest Chronicle** is an ecological simulation game where players act as ecosystem managers balancing human development with environmental preservation. Through real-time resource management across three eras, the game demonstrates the butterfly effect of human activities on nature.
+ 
 ## Quick Start Guide:
 
 1. Open your project folder in Unity Hub.
@@ -27,6 +28,7 @@
 
 ## Demo video
 You can find a demonstration video here: https://drive.google.com/file/d/1Rap8kAODNsDtKnRc43wuyIQIJF41wBWR/view?usp=sharing
+
 
 
 
