@@ -7,11 +7,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root {
-    --color1: #425D5F;
-    --color2: #BACACB;
-    --color3: #F8F7F2;
-    --color4: #FDE7A2;
-    --color5: #FAA943;
+    --color1: #36622B;
+    --color2: #5A9E7C;
+    --color3: #729D39;
+    --color4: #83CC61;
+    --color5: #C6E377;
+    --color6: #B7E576;
+    --color7: #FBFAD3;
+    --color8: #EEFCA9;
 }
 
 html { scroll-behavior: smooth; }
@@ -20,19 +23,19 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--color3);
+    background-color: var(--color7);
     color: var(--color1);
     line-height: 1.6;
 }
 
-
+/* 顶部固定导航 */
 nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     background-color: var(--color1);
-    color: var(--color3);
+    color: var(--color7);
     display: flex;
     justify-content: center;
     gap: 25px;
@@ -42,18 +45,18 @@ nav {
 }
 
 nav a {
-    color: var(--color3);
+    color: var(--color7);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s;
 }
-nav a:hover { color: var(--color5); }
+nav a:hover { color: var(--color4); }
 
 /* 页头 */
 header {
     text-align: center;
     padding: 100px 20px 60px;
-    background: var(--color2);
+    background: var(--color5);
 }
 header h1 {
     font-size: 3em;
@@ -63,14 +66,15 @@ header h1 {
 header p {
     font-size: 1.2em;
     margin-top: 10px;
-    color: var(--color5);
+    color: var(--color4);
 }
 
+/* 内容区域 */
 section {
     max-width: 1000px;
     margin: 50px auto;
     padding: 30px 25px;
-    background: var(--color3);
+    background: var(--color7);
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
     opacity: 0;
@@ -86,12 +90,12 @@ h2 {
     padding-bottom: 5px;
 }
 h3 {
-    color: var(--color5);
+    color: var(--color4);
     margin-top: 20px;
     margin-bottom: 10px;
 }
 
-
+/* 卡片样式 */
 .card-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -99,13 +103,14 @@ h3 {
     margin-top: 20px;
 }
 .card {
-    background-color: var(--color2);
+    background-color: var(--color6);
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    transition: transform 0.5s ease, box-shadow 0.5s ease, opacity 0.8s ease;
+    transition: transform 0.5s ease, box-shadow 0.5s ease, background 0.5s ease, opacity 0.8s ease;
     opacity: 0;
     transform: translateY(40px);
+    position: relative;
 }
 .card.visible {
     opacity: 1;
@@ -114,10 +119,24 @@ h3 {
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, var(--color4), var(--color5));
 }
 .card h3 { margin-top: 0; }
 
+/* 图标闪动 */
+.card h3::after {
+    content: "✨";
+    display: inline-block;
+    margin-left: 8px;
+    animation: iconBlink 2s infinite;
+}
+@keyframes iconBlink {
+    0%, 50%, 100% { opacity: 1; transform: rotate(0deg); }
+    25% { opacity: 0.5; transform: rotate(20deg); }
+    75% { opacity: 0.5; transform: rotate(-20deg); }
+}
 
+/* 视频容器 */
 .video-container {
     position: relative;
     padding-bottom: 56.25%;
@@ -136,6 +155,7 @@ h3 {
     border: none;
 }
 
+/* 表格 */
 table {
     border-collapse: collapse;
     width: 100%;
@@ -144,26 +164,27 @@ table {
 }
 table, th, td { border: 1px solid var(--color1); }
 th, td { padding: 10px; text-align: left; }
-th { background-color: var(--color2); }
+th { background-color: var(--color6); }
 
-
+/* 链接 */
 a { color: var(--color1); text-decoration: none; }
-a:hover { color: var(--color5); text-decoration: underline; }
+a:hover { color: var(--color4); text-decoration: underline; }
 
 /* footer */
 footer {
     text-align: center;
     padding: 20px;
     background: var(--color1);
-    color: var(--color3);
+    color: var(--color7);
     font-size: 0.9em;
     margin-top: 40px;
 }
 
-
+/* 响应式 */
 @media(max-width: 768px){
     header h1 { font-size: 2.2em; }
     section { margin: 30px 15px; padding: 20px; }
+    .card-container { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -258,7 +279,7 @@ footer {
 </footer>
 
 <script>
-
+    // section和card滚动渐入动画
     const elements = document.querySelectorAll('section, .card');
     const observer = new IntersectionObserver(entries=>{
         entries.forEach(entry=>{
