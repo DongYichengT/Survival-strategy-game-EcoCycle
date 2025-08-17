@@ -6,206 +6,269 @@
 <title>Forest Chronicle - Demo</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
-    /* 全局样式 */
-    body {
-        font-family: 'Roboto', sans-serif;
-        margin: 0;
-        padding: 0;
-        background: linear-gradient(135deg, #9EF29B, #71D9B3, #038C7F, #98DCFE, #22A2F2, #227FDE);
-        color: #222;
-        line-height: 1.6;
-    }
+:root {
+    --color1: #425D5F;
+    --color2: #BACACB;
+    --color3: #F8F7F2;
+    --color4: #FDE7A2;
+    --color5: #FAA943;
+}
 
-    /* 页头 */
-    header {
-        text-align: center;
-        padding: 60px 20px;
-        background: rgba(255, 255, 255, 0.1);
-        border-bottom: 2px solid #038C7F;
-    }
-    header h1 {
-        font-size: 3em;
-        margin: 0;
-        color:  #ffffff;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-    }
-    header p {
-        font-size: 1.2em;
-        margin-top: 10px;
-        color: #22A2F2;
-    }
+html { scroll-behavior: smooth; }
 
-    /* 内容区域 */
-    section {
-        max-width: 1000px;
-        margin: 40px auto;
-        padding: 30px 25px;
-        background: rgba(255, 255, 255, 0.85);
-        border-radius: 15px;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    }
-    h2 {
-        color: #038C7F;
-        margin-bottom: 15px;
-        border-bottom: 2px solid #22A2F2;
-        padding-bottom: 5px;
-    }
-    h3 {
-        color: #227FDE;
-        margin-top: 20px;
-        margin-bottom: 10px;
-    }
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color3);
+    color: var(--color1);
+    line-height: 1.6;
+}
 
-    /* 列表样式 */
-    ul, ol {
-        margin-left: 20px;
-    }
 
-    code {
-        display: block;
-        background: #98DCFE;
-        padding: 10px;
-        border-radius: 8px;
-        margin: 10px 0;
-        overflow-x: auto;
-    }
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color1);
+    color: var(--color3);
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 15px 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
 
-    table {
-        border-collapse: collapse;
-        width: 100%;
-        margin-top: 10px;
-        margin-bottom: 20px;
-    }
-    table, th, td {
-        border: 1px solid #038C7F;
-    }
-    th, td {
-        padding: 10px;
-        text-align: left;
-    }
-    th {
-        background-color: #71D9B3;
-    }
+nav a {
+    color: var(--color3);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+nav a:hover { color: var(--color5); }
 
-    /* 视频容器 */
-    .video-container {
-        position: relative;
-        padding-bottom: 56.25%;
-        height: 0;
-        margin: 20px 0;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }
-    .video-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: none;
-    }
+/* 页头 */
+header {
+    text-align: center;
+    padding: 100px 20px 60px;
+    background: var(--color2);
+}
+header h1 {
+    font-size: 3em;
+    margin: 0;
+    color: var(--color1);
+}
+header p {
+    font-size: 1.2em;
+    margin-top: 10px;
+    color: var(--color5);
+}
 
-    /* 链接 */
-    a {
-        color: #038C7F;
-        text-decoration: none;
-    }
-    a:hover {
-        text-decoration: underline;
-    }
+section {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 30px 25px;
+    background: var(--color3);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease-out;
+}
+section.visible { opacity: 1; transform: translateY(0); }
 
-    footer {
-        text-align: center;
-        padding: 20px;
-        background: rgba(0,0,0,0.1);
-        margin-top: 40px;
-        font-size: 0.9em;
-    }
+h2 {
+    color: var(--color1);
+    margin-bottom: 20px;
+    border-bottom: 3px solid var(--color4);
+    padding-bottom: 5px;
+}
+h3 {
+    color: var(--color5);
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+.card {
+    background-color: var(--color2);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: transform 0.5s ease, box-shadow 0.5s ease, opacity 0.8s ease;
+    opacity: 0;
+    transform: translateY(40px);
+}
+.card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+.card h3 { margin-top: 0; }
+
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    margin: 20px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+table, th, td { border: 1px solid var(--color1); }
+th, td { padding: 10px; text-align: left; }
+th { background-color: var(--color2); }
+
+
+a { color: var(--color1); text-decoration: none; }
+a:hover { color: var(--color5); text-decoration: underline; }
+
+/* footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--color1);
+    color: var(--color3);
+    font-size: 0.9em;
+    margin-top: 40px;
+}
+
+
+@media(max-width: 768px){
+    header h1 { font-size: 2.2em; }
+    section { margin: 30px 15px; padding: 20px; }
+}
 </style>
 </head>
 <body>
+
+<nav>
+    <a href="#overview">Game Overview</a>
+    <a href="#video">Demo Video</a>
+    <a href="#features">Core Features</a>
+    <a href="#start">Getting Started</a>
+</nav>
 
 <header>
     <h1>Forest Chronicle</h1>
     <p>Ecological Simulation Game Demo</p>
 </header>
 
-<section>
+<section id="overview">
     <h2>🌳 Game Overview</h2>
-    <p><strong>Forest Chronicle</strong> is an ecological simulation game where players act as ecosystem managers balancing human development with environmental preservation. Through real-time resource management across three eras, the game demonstrates the butterfly effect of human activities on nature.</p>
-</section>
-    
-<section>
-    <h2>🎬 Demo Video</h2>
-    <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/ucV9xFBUZbI" allowfullscreen></iframe>
+    <div class="card-container">
+        <div class="card">
+            <p><strong>Forest Chronicle</strong> is an ecological simulation game where players act as ecosystem managers balancing human development with environmental preservation. Through real-time resource management across three eras, the game demonstrates the butterfly effect of human activities on nature.</p>
+        </div>
     </div>
 </section>
 
-    
-<section>
+<section id="video">
+    <h2>🎬 Demo Video</h2>
+    <div class="card-container">
+        <div class="card">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/ucV9xFBUZbI" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="features">
     <h2>✨ Core Features</h2>
-    <h3>🎮 Gameplay Mechanics</h3>
-    <ul>
-        <li><strong>Dual Management System</strong>: Human settlements (build houses/farms – Press 2) & Ecosystem protection (plant forests/clean water)</li>
-        <li><strong>Three Challenge Stages</strong>:
-            <ol>
-                <li>Basic Survival (Peaceful development)</li>
-                <li>Ecological Crisis (Orc invasion management)</li>
-                <li>Ultimate Disaster (Volcano/flood survival)</li>
-            </ol>
-        </li>
-        <li><strong>Dynamic Feedback System</strong>:
+    <div class="card-container">
+        <div class="card">
+            <h3>🎮 Gameplay Mechanics</h3>
             <ul>
-                <li>Soil quality degradation from deforestation</li>
-                <li>Water pollution impact on fish populations</li>
-                <li>Air quality affecting crop yields</li>
+                <li><strong>Dual Management System</strong>: Human settlements & Ecosystem protection</li>
+                <li><strong>Three Challenge Stages</strong>:
+                    <ol>
+                        <li>Basic Survival</li>
+                        <li>Ecological Crisis</li>
+                        <li>Ultimate Disaster</li>
+                    </ol>
+                </li>
+                <li><strong>Dynamic Feedback System</strong>:
+                    <ul>
+                        <li>Soil quality degradation from deforestation</li>
+                        <li>Water pollution impact on fish populations</li>
+                        <li>Air quality affecting crop yields</li>
+                    </ul>
+                </li>
             </ul>
-        </li>
-    </ul>
-
-    <h3>🛠️ Technical Implementation</h3>
-    <table>
-        <tr>
-            <th>Component</th>
-            <th>Details</th>
-        </tr>
-        <tr>
-            <td>Engine</td>
-            <td>Unity 2021.3 with URP</td>
-        </tr>
-        <tr>
-            <td>Language</td>
-            <td>C# 9.0 (Async/Await for AI behavior)</td>
-        </tr>
-        <tr>
-            <td>Terrain System</td>
-            <td>Custom heightmap generator + Biome blend shader</td>
-        </tr>
-        <tr>
-            <td>Ecosystem Logic</td>
-            <td>Entity Component System (ECS) for 10k+ unit simulations</td>
-        </tr>
-    </table>
+        </div>
+        <div class="card">
+            <h3>🛠️ Technical Implementation</h3>
+            <table>
+                <tr><th>Component</th><th>Details</th></tr>
+                <tr><td>Engine</td><td>Unity 2021.3 with URP</td></tr>
+                <tr><td>Language</td><td>C# 9.0</td></tr>
+                <tr><td>Terrain System</td><td>Custom heightmap generator + Biome blend shader</td></tr>
+                <tr><td>Ecosystem Logic</td><td>ECS for 10k+ unit simulations</td></tr>
+            </table>
+        </div>
+    </div>
 </section>
 
-<section>
+<section id="start">
     <h2>🚀 Getting Started</h2>
-    <h3>📥 Installation</h3>
-    <code>
-        # Download latest build<br>
-        git clone https://github.com/forest-chronicle/game.git<br>
-        cd ForestChronicle<br><br>
-        # Windows/macOS<br>
-        ./setup.sh
-    </code>
+    <div class="card-container">
+        <div class="card">
+            <h3>📥 Installation</h3>
+            <code>
+                # Download latest build<br>
+                git clone https://github.com/forest-chronicle/game.git<br>
+                cd ForestChronicle<br><br>
+                # Windows/macOS<br>
+                ./setup.sh
+            </code>
+        </div>
+    </div>
 </section>
-
 
 <footer>
     &copy; 2025 Forest Chronicle. All rights reserved.
 </footer>
+
+<script>
+
+    const elements = document.querySelectorAll('section, .card');
+    const observer = new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting){
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.2 });
+    elements.forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
